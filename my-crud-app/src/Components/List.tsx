@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ListItem from "./ListItem";
 import { itemData } from "./ListItem";
+import ItemInput from "./ItemInput";
 
 function List()
 {
@@ -9,15 +10,13 @@ function List()
 
     return (
         <>
-            <button onClick={createNewItem}> {/*Just for testing atm*/}
-                Test add new item
-            </button>
+            <ItemInput createItem={createNewItem}/>
             <button onClick={deleteLastItem}> {/*Just for testing atm*/}
                 test delete last
             </button>
             <ol>
                 {ListItems.map((item) => {
-                    return(<ListItem itemName = {item.name} completed = {item.completed}></ListItem>)
+                    return(<ListItem itemName = {item.name} completed = {item.completed} time={item.time} key={item.time}></ListItem>)
                 })}
             </ol>
         </>
@@ -26,13 +25,13 @@ function List()
     )
 
 
-    function createNewItem()
+    function createNewItem(itemText: string, completed: boolean, time: number)
     {
-        const itemText: string = Date.now().toString(); // just for testing atm, use the current time as the items text
-        const randomCompleted: boolean = Math.random() < 0.5; // just for testing atm, randomly decide if the task is completed or not
+        //const itemText: string = Date.now().toString(); // just for testing atm, use the current time as the items text
+        //const randomCompleted: boolean = Math.random() < 0.5; // just for testing atm, randomly decide if the task is completed or not
 
         const newList = [...ListItems];
-        newList.push(new itemData(itemText, randomCompleted));
+        newList.push(new itemData(itemText, completed, time));
         SetListItems(newList);
     }
 

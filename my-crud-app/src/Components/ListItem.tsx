@@ -1,9 +1,9 @@
 import React from "react";
 
-function ListItem({itemName, completed}: {itemName: string, completed: boolean})
+function ListItem({itemName, completed, time}: {itemName: string, completed: boolean, time: number})
 {
     return (
-        <li>Im  a list item! {itemName} {completed ? "complete" : "not complete"}</li>
+        <li>{itemName} {completed ? "complete" : "not complete"} {`(${time})`}</li>
     );
 }
 
@@ -11,10 +11,12 @@ export class itemData {
 
     name: string;
     completed: boolean;
+    time: number
 
-    constructor(name: string, completed: boolean) {
+    constructor(name: string, completed: boolean, time: number) {
         this.name = name;
         this.completed = completed;
+        this.time = time;
     }
 }
 
