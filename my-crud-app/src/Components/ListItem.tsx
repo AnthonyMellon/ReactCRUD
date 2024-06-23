@@ -6,7 +6,7 @@ function ListItem({itemName, completed, time}: {itemName: string, completed: boo
 
     return (
         <li>
-            {itemName} {isComplete ? "complete" : "not complete"} {`(${time})`}
+            {itemName} {isComplete ? "complete" : "not complete"}
             <button onClick={ToggleComplete}>Toggle Complete</button>
         </li>
     );
