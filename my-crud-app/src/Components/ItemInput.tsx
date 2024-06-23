@@ -10,6 +10,7 @@ function ItemInput({createItem: createItem}: ButtonProps)
         <>
             <form onSubmit={OnSubmit}>
                 <input type="text" name="itemName"></input>
+                <label>Enter Completed</label>
                 <input type="checkbox" name="itemComplete"></input>
                 <button type="submit">Submit</button>
             </form>

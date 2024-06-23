@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ListItem({itemName, completed, time}: {itemName: string, completed: boolean, time: number})
 {
+    const [isComplete, setIsComplete] = useState<boolean>(completed)
+
     return (
-        <li>{itemName} {completed ? "complete" : "not complete"} {`(${time})`}</li>
+        <li>
+            {itemName} {isComplete ? "complete" : "not complete"} {`(${time})`}
+            <button onClick={ToggleComplete}>Toggle Complete</button>
+        </li>
     );
+
+    function ToggleComplete()
+    {
+        setIsComplete(!isComplete);
+    }
 }
+
+
 
 export class itemData {
 
