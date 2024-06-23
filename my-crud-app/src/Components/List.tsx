@@ -27,9 +27,6 @@ function List()
 
     function createNewItem(itemText: string, completed: boolean, time: number)
     {
-        //const itemText: string = Date.now().toString(); // just for testing atm, use the current time as the items text
-        //const randomCompleted: boolean = Math.random() < 0.5; // just for testing atm, randomly decide if the task is completed or not
-
         const newList = [...ListItems];
         newList.push(new itemData(itemText, completed, time));
         SetListItems(newList);
